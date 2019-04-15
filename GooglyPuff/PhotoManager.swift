@@ -99,7 +99,8 @@ class PhotoManager {
         PhotoManager.shared.addPhoto(photo)
       }
       blocks.append(block)
-      DispatchQueue.main.async(execute: block)
+        DispatchQueue.global(qos: .userInitiated).async(execute: block)
+//      DispatchQueue.main.async(execute: block)
     }
 
     for block in blocks[3..<blocks.count] {
